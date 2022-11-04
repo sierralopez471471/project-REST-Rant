@@ -2,4 +2,11 @@ h1 {
     text-align: center;
     color: cornflowerblue;
   }
-  
+
+img {
+    max-width: 50vh;
+    height: 50vh;
+}
+.home-img {
+    max-width: 50%;
+}
