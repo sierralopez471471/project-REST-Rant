@@ -6,16 +6,16 @@ function show (data) {
         <Def>
           <main>
             <div className="row">
-                <div className="col-sm-6">
+                <div className="col-sm-6 mt-4">
                     <img src={data.place.pic} />
                 </div>
-                <div className="col-sm-6">
+                <div className="col-sm-6 mt-4">
                     <h1>{data.place.name}</h1>
-                    <h1>Rating</h1>
-                    <h2>Currently Unrated</h2>
-                    <h1>Description</h1>
-                    <h2>Located in {data.place.city}, {data.place.state}</h2>
-                    <h2>Serves {data.place.cuisines}</h2>
+                    <h2 className="text-info">Rating</h2>
+                    <h3>Currently Unrated</h3>
+                    <h2 className="text-info">Description</h2>
+                    <h3>Located in {data.place.city}, {data.place.state}</h3>
+                    <h3>Serves {data.place.cuisines}</h3>
                     <a href={`/places/${data.id}/edit`} className="btn btn-warning">
                         Edit
                     </a>
@@ -27,8 +27,8 @@ function show (data) {
                 </div>
             </div>
             <div>
-                <h1>Comments</h1>
-                <h2>No comments yet!</h2>
+                <h2 className="text-info">Comments</h2>
+                <h3>No comments yet!</h3>
             </div>
           </main>
         </Def>
