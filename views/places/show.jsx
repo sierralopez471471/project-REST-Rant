@@ -11,10 +11,10 @@ function show (data) {
         comments = data.place.comments.map(c => {
           return (
             <div className="border">
-              <h2 className="rant">{c.rant ? 'Rant! ðŸ˜¡' : 'Rave! ðŸ˜»'}</h2>
+              <h2 className="rant">{c.rant ? 'Rant! >:[' : 'Rave! =D'}</h2>
               <h4>{c.content}</h4>
               <h3>
-                <stong>- {c.author}</stong>
+                <strong>- {c.author}</strong>
               </h3>
               <h4>Rating: {c.stars}</h4>
             </div>
@@ -51,6 +51,28 @@ function show (data) {
             <div>
                 <h2 className="text-info">Comments</h2>
                 {comments}
+                <h2 className="text-info">Got Your Own Rant or Rave?</h2>
+                <form method="POST" action={`/places/${data.place.id}/comment?_method=POST`}>
+                    <div className="form-group">
+                        <label htmlFor="content">Content</label>
+                        <input className="form-control" type="textarea" id="content" name="content" />
+                    </div>
+                    <div className="row">
+                        <div className="form-group col-sm-4">
+                            <label htmlFor="author">Author</label>
+                            <input className="form-control" type="text" id="author" name="author" required />
+                        </div>
+                        <div className="form-group col-sm-4">
+                            <label htmlFor="stars">Star Rating</label>
+                            <input className="form-control" type="number" step="0.5" id="stars" name="stars" />
+                        </div>
+                        <div className="form-group col-sm-4">
+                            <label className="form-check" htmlFor="rant">Rant?</label>
+                            <input className="form-check-input" type="checkbox" id="rant" name="rant" />
+                        </div>
+                    </div>
+                    <input className="btn btn-primary" type="submit" value="Add Comment" />
+                </form>
             </div>
           </main>
         </Def>
