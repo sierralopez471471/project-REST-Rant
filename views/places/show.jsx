@@ -69,7 +69,7 @@ function show (data) {
             <br />
             <div>
                 <h2 className="text-info border-top">Comments</h2>
-                <div className="row">
+                <div className="row d-flex justify-content-center">
                     {comments}
                 </div>
                 <h2 className="text-info border-top">Got Your Own Rant or Rave?</h2>
