@@ -7,11 +7,29 @@ function show (data) {
             No comments yet!
         </h3>
     )
+    let rating = (
+        <h3 className="inactive">
+            Not yet rated
+        </h3>
+    )
     if (data.place.comments.length) {
+        let sumRatings = data.place.comments.reduce((tot, c) => {
+            return tot + c.stars
+        }, 0)
+        let averageRating = Math.round(sumRatings / data.place.comments.length)
+        let stars = ''
+        for (let i = 0; i < averageRating; i++) {
+            stars += '⭐'
+        }
+        rating = (
+            <h3>
+            {stars} stars
+            </h3>
+        )
         comments = data.place.comments.map(c => {
           return (
-            <div className="border">
-              <h2 className="rant">{c.rant ? 'Rant! >:[' : 'Rave! =D'}</h2>
+            <div className="border col-sm-4">
+              <h2 className="rant">{c.rant ? 'Rant! 👿' : 'Rave! 🤩'}</h2>
               <h4>{c.content}</h4>
               <h3>
                 <strong>- {c.author}</strong>
@@ -31,8 +49,10 @@ function show (data) {
                 </div>
                 <div className="col-sm-6 mt-4">
                     <h1>{data.place.name}</h1>
+                    <br />
                     <h2 className="text-info">Rating</h2>
-                    <h3>Currently Unrated</h3>
+                    {rating}
+                    <br />
                     <h2 className="text-info">Description</h2>
                     <h3>
                         {data.place.showEstablished()}
@@ -48,11 +68,14 @@ function show (data) {
                     </form>
                 </div>
             </div>
+            <br />
             <div>
-                <h2 className="text-info">Comments</h2>
-                {comments}
-                <h2 className="text-info">Got Your Own Rant or Rave?</h2>
-                <form method="POST" action={`/places/${data.place.id}/comment?_method=POST`}>
+                <h2 className="text-info border-top">Comments</h2>
+                <div className="row">
+                    {comments}
+                </div>
+                <h2 className="text-info border-top">Got Your Own Rant or Rave?</h2>
+                <form action={`/places/${data.place.id}/comment?_method=POST`} method="POST" >
                     <div className="form-group">
                         <label htmlFor="content">Content</label>
                         <input className="form-control" type="textarea" id="content" name="content" />
