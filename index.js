@@ -5,6 +5,7 @@ const app = express()
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT
+
 //express settings
 //app.set('views', _dirname + '/views')
 app.set('view engine', 'jsx')
