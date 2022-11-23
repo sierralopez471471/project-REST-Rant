@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express');
 const app = express()
 const methodOverride = require('method-override');
-const { default: mongoose } = require('mongoose');
+const mongoose = require('mongoose');
 const PORT = process.env.PORT
 //express settings
 //app.set('views', _dirname + '/views')
