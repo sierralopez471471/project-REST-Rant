@@ -27,3 +27,5 @@ app.get('*', (req, res) => {
 
 //listen for connections
 app.listen(process.env.PORT)
+
+module.exports = app
