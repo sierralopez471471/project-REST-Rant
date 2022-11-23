@@ -5,9 +5,9 @@
     "node": "16.14.2"
   },
   "description": "",
-  "main": "index.js",
+  "main": "controllers/places.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node controllers/places.js"
   },
   "keywords": [],
   "author": "",
